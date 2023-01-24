@@ -78,3 +78,7 @@ crashlytics-build.properties
 # Other
 /[Aa]ssets/TextMesh*
 /[Aa]ssets/Samples/UltimateXR/
+/[Aa]ssets/Sky*
+/[Aa]ssets/Sword_Scabbard*
+/[Aa]ssets/Waldemarst*
+/[Aa]ssets/DebugDrawingExtension*
