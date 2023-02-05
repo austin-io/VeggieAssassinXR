@@ -27,8 +27,8 @@ public class Katana : MonoBehaviour {
 
         UpdateTriangles();
 
-        DebugExtension.DebugWireSphere(Utils.ClosestPointToTriangle(testPoint.position, tipTransform.position, hiltTransform.position, lastTip), Color.red, 0.05f);
-        DebugExtension.DebugWireSphere(Utils.ClosestPointToTriangle(testPoint.position, hiltTransform.position, lastHilt, lastTip), Color.magenta, 0.05f);
+        //DebugExtension.DebugWireSphere(Utils.ClosestPointToTriangle(testPoint.position, tipTransform.position, hiltTransform.position, lastTip), Color.red, 0.05f);
+        //DebugExtension.DebugWireSphere(Utils.ClosestPointToTriangle(testPoint.position, hiltTransform.position, lastHilt, lastTip), Color.magenta, 0.05f);
 
         lastHilt = hiltTransform.position;
         lastTip = tipTransform.position;

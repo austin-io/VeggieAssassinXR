@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseShape : MonoBehaviour {
     [SerializeField] protected bool DRAW_DEBUG = false;
+    [HideInInspector] public bool isDone = false;
 
     public UnityEngine.Events.UnityEvent<BaseShape> OnShapeHit;
 

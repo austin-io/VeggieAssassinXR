@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555557772}
   - component: {fileID: 555557773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BladeTip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179468839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BladeBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560220565493249}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Grab Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,13 +213,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560220586292124}
-  - component: {fileID: 1347560220586292125}
-  - component: {fileID: 1347560220586292098}
   - component: {fileID: 1347560220586292099}
   - component: {fileID: 1347560220586292096}
   - component: {fileID: 1347560220586292097}
   - component: {fileID: 2251917863304938951}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Katana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,56 +243,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1347560220586292125
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347560220586292102}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1347560220586292098
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347560220586292102}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1347560220586292099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -424,6 +372,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiltTransform: {fileID: 1179468839}
   tipTransform: {fileID: 555557772}
+  testPoint: {fileID: 0}
+  collisionSystem: {fileID: 0}
+  mainTriangle: {fileID: 0}
+  followTriangle: {fileID: 0}
 --- !u!1 &1347560220928655737
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560220928655736}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Grabs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +418,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560222030321761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560222053024015}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1347560222106659632}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: '[Default]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4369112819986040516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Grab Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194800882260721376}
   - component: {fileID: 4537953548697271957}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4726873328330340048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XRPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8805402611121672993}
   - component: {fileID: 268504892877675676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right Grab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,12 +664,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 1347560220586292124}
     m_Modifications:
     - target: {fileID: 103576, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 103576, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 128680, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 149494, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
       propertyPath: m_Name
       value: Sword_Scabbard
+      objectReference: {fileID: 0}
+    - target: {fileID: 149494, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 425942, guid: 79aa677bbe2b9a74b91bad978448ce88, type: 3}
       propertyPath: m_RootOrder
