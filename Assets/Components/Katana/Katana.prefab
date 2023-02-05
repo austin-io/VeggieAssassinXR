@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1347560220586292099}
   - component: {fileID: 1347560220586292096}
   - component: {fileID: 1347560220586292097}
+  - component: {fileID: 2251917863304938951}
   m_Layer: 0
   m_Name: Katana
   m_TagString: Untagged
@@ -409,6 +410,20 @@ MonoBehaviour:
   _dropSnapMode: 3
   _dropProximityTransformUseSelf: 1
   _dropProximityTransform: {fileID: 0}
+--- !u!114 &2251917863304938951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347560220586292102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710b778a521a00b08b57cc3f6ae23677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiltTransform: {fileID: 1179468839}
+  tipTransform: {fileID: 555557772}
 --- !u!1 &1347560220928655737
 GameObject:
   m_ObjectHideFlags: 0

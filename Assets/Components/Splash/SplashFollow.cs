@@ -20,7 +20,7 @@ public class SplashFollow : MonoBehaviour {
 
         bool wasPlaying = isActive;
         Ray ray = new Ray(bladeBase.position, (bladeTip.position - bladeBase.position) / rayLength);
-        if(RayPlaneIntersection(planeTransform.position, planeTransform.up, ray, out float t, out Vector3 hitPoint) && t < rayLength && t > 0){
+        if(Utils.RayPlaneIntersection(planeTransform.position, planeTransform.up, ray, out float t, out Vector3 hitPoint) && t < rayLength && t > 0){
             isActive = true;
             transform.position = hitPoint;
         } else isActive = false;
@@ -35,19 +35,5 @@ public class SplashFollow : MonoBehaviour {
             splashParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
 
-    }
-
-    bool RayPlaneIntersection(Vector3 planePosition, Vector3 planeNormal, Ray ray, out float t, out Vector3 hitPoint){
-        t = 0;
-        hitPoint = ray.origin;
-        float denom = Vector3.Dot(planeNormal, ray.direction);
-        
-        if(Mathf.Abs(denom) > 0.0001f){
-            t = Vector3.Dot((planePosition - ray.origin), planeNormal) / denom;
-            hitPoint = ray.origin + (ray.direction * t);
-            return true;
-        }
-
-        return false;
     }
 }
