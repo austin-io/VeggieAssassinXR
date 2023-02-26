@@ -11,7 +11,7 @@ public class CollisionSystem : MonoBehaviour {
 
     void Update(){
         foreach(var sphere in shapes){
-            if(sphere.isDone) continue;
+            if(sphere == null || sphere.isDone) continue;
             
             foreach(var katana in katanas){
                 bool wasHit = Utils.IsPointInSphere(Utils.ClosestPointToTriangle(sphere.transform.position, katana.mainTriangle.pointA, katana.mainTriangle.pointB, katana.mainTriangle.pointC), sphere.transform.position, sphere.radius);

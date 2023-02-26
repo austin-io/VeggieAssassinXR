@@ -19,7 +19,7 @@ public class FoodSpawnSystem : MonoBehaviour {
     void Update() {
         timer += Time.deltaTime;
 
-        if(timer < 3) return;
+        if(timer < 1) return;
         timer = 0;
 
         Vector3 spawnPosition = Vector3.forward * Random.Range(1, 1.5f);
