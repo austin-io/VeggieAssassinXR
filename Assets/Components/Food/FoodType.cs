@@ -10,19 +10,26 @@ public class FoodType : MonoBehaviour {
     [SerializeField] public SphereShape hitsphere;
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpImpulse = 8;
+    [SerializeField] TrailRenderer trail;
 
     public Material crossSectionMaterial; 
 
     // Start is called before the first frame update
-    void Start() {
-        if(collisionSystem == null) collisionSystem = FindObjectOfType<CollisionSystem>();
+    void Start() {}
+
+    public void Init(CollisionSystem collision_system, GameObject food_object, Material cross_section_material, float radius){
+        //if(collisionSystem == null) 
+        collisionSystem = collision_system;
+        foodObject = food_object;
+        crossSectionMaterial = cross_section_material;
+        hitsphere.radius = radius;
+        trail.material = cross_section_material;
 
         hitsphere.OnShapeHit.AddListener(OnHit);
         collisionSystem.shapes.Add(hitsphere);
 
         rb.AddForce(Vector3.up * jumpImpulse, ForceMode.Impulse);
         rb.AddTorque(Random.rotation * Vector3.up * 0.05f, ForceMode.Impulse);
-
     }
 
     // Update is called once per frame
