@@ -6,7 +6,9 @@ public class Katana : MonoBehaviour {
     
     [SerializeField] Transform hiltTransform, tipTransform, testPoint;
     [SerializeField] CollisionSystem collisionSystem;
+    [SerializeField] UltimateXR.Haptics.Helpers.UxrFixedHapticFeedback haptics;
     [HideInInspector] public TriangleShape mainTriangle, followTriangle;
+
 
     Vector3 lastHilt, lastTip;
     
@@ -42,5 +44,11 @@ public class Katana : MonoBehaviour {
         followTriangle.pointA = hiltTransform.position; 
         followTriangle.pointB = lastHilt; 
         followTriangle.pointC = lastTip;
+    }
+
+    public IEnumerator ShakeController(){
+        haptics.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        haptics.gameObject.SetActive(false);
     }
 }

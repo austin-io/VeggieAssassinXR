@@ -17,7 +17,7 @@ public class FoodType : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {}
 
-    public void Init(CollisionSystem collision_system, GameObject food_object, Material cross_section_material, float radius){
+    public void Init(CollisionSystem collision_system, GameObject food_object, Material cross_section_material, float radius, Vector3 startingImpulse){
         //if(collisionSystem == null) 
         collisionSystem = collision_system;
         foodObject = food_object;
@@ -28,7 +28,7 @@ public class FoodType : MonoBehaviour {
         hitsphere.OnShapeHit.AddListener(OnHit);
         collisionSystem.shapes.Add(hitsphere);
 
-        rb.AddForce(Vector3.up * jumpImpulse, ForceMode.Impulse);
+        rb.AddForce(startingImpulse * jumpImpulse, ForceMode.Impulse);
         rb.AddTorque(Random.rotation * Vector3.up * 0.05f, ForceMode.Impulse);
     }
 
