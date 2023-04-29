@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollisionSystem : MonoBehaviour {
     
     [SerializeField] public List<Katana> katanas = new List<Katana>();
     [SerializeField] public List<SphereShape> shapes = new List<SphereShape>();
+    [SerializeField] UnityEvent OnShapeHit;
     
     //void Start(){}
 

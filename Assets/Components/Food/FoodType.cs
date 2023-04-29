@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using EzySlice;
 
 public class FoodType : MonoBehaviour {
@@ -11,11 +12,16 @@ public class FoodType : MonoBehaviour {
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpImpulse = 8;
     [SerializeField] TrailRenderer trail;
-
+    
+    public UnityEvent onMissEvent;
     public Material crossSectionMaterial; 
 
     // Start is called before the first frame update
     void Start() {}
+
+    void OnDestroy(){
+        onMissEvent.RemoveAllListeners();
+    }
 
     public void Init(CollisionSystem collision_system, GameObject food_object, Material cross_section_material, float radius, Vector3 startingImpulse){
         //if(collisionSystem == null) 
@@ -30,6 +36,8 @@ public class FoodType : MonoBehaviour {
 
         rb.AddForce(startingImpulse * jumpImpulse, ForceMode.Impulse);
         rb.AddTorque(Random.rotation * Vector3.up * 0.05f, ForceMode.Impulse);
+
+        onMissEvent = new UnityEvent();
     }
 
     // Update is called once per frame
@@ -38,6 +46,10 @@ public class FoodType : MonoBehaviour {
         if(hitsphere.isDone) return;
 
         hitsphere.isDone = true;
+        
+        // Increase misses
+        onMissEvent?.Invoke();
+
         Destroy(gameObject);
     }
 

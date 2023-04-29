@@ -7,6 +7,7 @@ public class FoodSpawnSystem : MonoBehaviour {
     
     [SerializeField] GameObject FoodObject;
     [SerializeField] CollisionSystem collisionSystem;
+    [SerializeField] GameSystem gameSystem;
     [SerializeField] List<FoodData> foodData;
     [SerializeField] GameObject poofParticles;
     [SerializeField] Transform playerCamera;
@@ -44,6 +45,8 @@ public class FoodSpawnSystem : MonoBehaviour {
         
         int randomIndex = Random.Range(0, foodData.Count);
         FoodType food = Instantiate(FoodObject, spawnPosition, Quaternion.identity).GetComponent<FoodType>();
+
+
         food.Init(
             collisionSystem, 
             Instantiate(foodData[randomIndex].foodModel, food.transform),
@@ -53,5 +56,7 @@ public class FoodSpawnSystem : MonoBehaviour {
             //((playerGroundPosition + new Vector3(0,0.3f,0)) - spawnPosition).normalized 
             );
         //collisionSystem.shapes.Add(food.hitsphere);
+        
+        food.onMissEvent.AddListener(gameSystem.OnMiss);
     }
 }
