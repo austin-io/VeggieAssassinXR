@@ -52,7 +52,7 @@ public class FoodSpawnSystem : MonoBehaviour {
             Instantiate(foodData[randomIndex].foodModel, food.transform),
             foodData[randomIndex].crossSectionMaterial, 
             foodData[randomIndex].radius,
-            Quaternion.LookRotation(((playerGroundPosition + new Vector3(0,10,0)) - spawnPosition).normalized) * Vector3.forward
+            (focalPoint * -0.05f) + (Quaternion.LookRotation(((playerGroundPosition + new Vector3(0,10,0)) - spawnPosition).normalized) * Vector3.forward)
             //((playerGroundPosition + new Vector3(0,0.3f,0)) - spawnPosition).normalized 
             );
         //collisionSystem.shapes.Add(food.hitsphere);

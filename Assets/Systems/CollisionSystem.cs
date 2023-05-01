@@ -22,6 +22,7 @@ public class CollisionSystem : MonoBehaviour {
                 if(wasHit){
                     sphere.OnShapeHit?.Invoke(katana.mainTriangle);
                     katana.mainTriangle.OnShapeHit?.Invoke(sphere);
+                    OnShapeHit?.Invoke();
                     StartCoroutine(katana.ShakeController());
                 }
             }

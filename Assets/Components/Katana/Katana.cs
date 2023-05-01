@@ -47,8 +47,8 @@ public class Katana : MonoBehaviour {
     }
 
     public IEnumerator ShakeController(){
-        haptics.gameObject.SetActive(true);
+        haptics.enabled = true;
         yield return new WaitForSeconds(0.5f);
-        haptics.gameObject.SetActive(false);
+        haptics.enabled = false;
     }
 }

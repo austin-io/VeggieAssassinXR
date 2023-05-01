@@ -12,6 +12,7 @@ public class FoodType : MonoBehaviour {
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpImpulse = 8;
     [SerializeField] TrailRenderer trail;
+    [SerializeField] GameObject foodBurst;
     
     public UnityEvent onMissEvent;
     public Material crossSectionMaterial; 
@@ -81,6 +82,10 @@ public class FoodType : MonoBehaviour {
         // dampen upwards velocity
         if(rb.velocity.y > 0)
             rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y * 0.4f, rb.velocity.z);
+
+        GameObject burstGO = Instantiate(foodBurst, transform.position, transform.rotation);
+        ParticleSystem.MainModule particleSettings = burstGO.GetComponent<ParticleSystem>().main;
+        particleSettings.startColor = crossSectionMaterial.color;
 
         StartCoroutine(HandleSlices(pieces[0], pieces[1], planeDirection));
     }
