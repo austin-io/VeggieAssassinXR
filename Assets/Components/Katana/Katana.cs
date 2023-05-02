@@ -5,8 +5,12 @@ using UnityEngine;
 public class Katana : MonoBehaviour {
     
     [SerializeField] Transform hiltTransform, tipTransform, testPoint;
+    [SerializeField] GameObject swordModel;
     [SerializeField] CollisionSystem collisionSystem;
     [SerializeField] UltimateXR.Haptics.Helpers.UxrFixedHapticFeedback haptics;
+    [SerializeField] UltimateXR.Manipulation.UxrGrabManager grabManager;
+    [SerializeField] UltimateXR.Manipulation.UxrGrabber grabber;
+
     [HideInInspector] public TriangleShape mainTriangle, followTriangle;
 
 
@@ -19,6 +23,9 @@ public class Katana : MonoBehaviour {
 
         mainTriangle = gameObject.AddComponent<TriangleShape>();
         followTriangle = gameObject.AddComponent<TriangleShape>();
+
+        grabManager = FindObjectOfType<UltimateXR.Manipulation.UxrGrabManager>();
+        grabManager.GrabObject(grabber, GetComponent<UltimateXR.Manipulation.UxrGrabbableObject>(), 0, true);
 
         collisionSystem.katanas.Add(this);
 
@@ -44,6 +51,16 @@ public class Katana : MonoBehaviour {
         followTriangle.pointA = hiltTransform.position; 
         followTriangle.pointB = lastHilt; 
         followTriangle.pointC = lastTip;
+    }
+
+    void OnApplicationFocus(bool hasFocus){
+        Debug.Log("App Focus");
+        swordModel.SetActive(hasFocus);
+    }
+
+    void OnApplicationPause(bool isPaused){
+        Debug.Log("App Pause");
+        swordModel.SetActive(!isPaused);
     }
 
     public IEnumerator ShakeController(){

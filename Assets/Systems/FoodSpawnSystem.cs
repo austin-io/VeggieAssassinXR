@@ -38,7 +38,7 @@ public class FoodSpawnSystem : MonoBehaviour {
         //Vector3 spawnPosition = Vector3.forward * Random.Range(1, 1.5f);
         //spawnPosition = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.up) * spawnPosition;
         Vector3 playerGroundPosition = Vector3.Scale(playerCamera.position, new Vector3(1,0,1));
-        Vector3 spawnPosition = playerGroundPosition + focalPoint + (new Vector3(focalPoint.z, 0, -focalPoint.x) * Random.Range(-1.0f, 1.0f));
+        Vector3 spawnPosition = playerGroundPosition + focalPoint + (new Vector3(focalPoint.z, 0, -focalPoint.x) * Random.Range(-1.0f, 1.0f)) / 2;
         spawnPosition.y = 0.3f;
 
         Instantiate(poofParticles, spawnPosition, Quaternion.identity);

@@ -12,7 +12,7 @@ public class FoodType : MonoBehaviour {
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpImpulse = 8;
     [SerializeField] TrailRenderer trail;
-    [SerializeField] GameObject foodBurst;
+    [SerializeField] GameObject foodBurst, failBurst;
     
     public UnityEvent onMissEvent;
     public Material crossSectionMaterial; 
@@ -50,6 +50,7 @@ public class FoodType : MonoBehaviour {
         
         // Increase misses
         onMissEvent?.Invoke();
+        Instantiate(failBurst, transform.position, transform.rotation);
 
         Destroy(gameObject);
     }

@@ -7,6 +7,7 @@ public class GameSystem : MonoBehaviour {
     [SerializeField] FoodSpawnSystem foodSpawnSystem;
     [SerializeField] GameObject mainMenu, gameOverMenu;
     [SerializeField] TMPro.TMP_Text scoreText;
+    [SerializeField] LifeCounter lifeCounter;
 
     int m_PlayerScore = 0, m_Misses = 0;
     bool gameEnded = false;
@@ -28,6 +29,8 @@ public class GameSystem : MonoBehaviour {
         mainMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         gameEnded = false;
+        lifeCounter.ResetLives();
+        lifeCounter.gameObject.SetActive(true);
     }
 
     public void OnGameOver(){
@@ -36,6 +39,7 @@ public class GameSystem : MonoBehaviour {
         scoreText.text = "Score: " + m_PlayerScore;
         gameOverMenu.SetActive(true);
         gameEnded = true;
+        lifeCounter.gameObject.SetActive(false);
     }
 
     public void OnMiss(){
@@ -46,6 +50,8 @@ public class GameSystem : MonoBehaviour {
             OnGameOver();
             return;
         }
+
+        lifeCounter.RemoveLife();
 
         m_Misses++;
     }

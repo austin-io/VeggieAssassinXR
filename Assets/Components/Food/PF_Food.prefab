@@ -188,6 +188,8 @@ MonoBehaviour:
   trail: {fileID: 7123209441252069050}
   foodBurst: {fileID: 1178974741476042850, guid: 694eb2c7144aeb38ba7b07645ad68769,
     type: 3}
+  failBurst: {fileID: 1178974741476042850, guid: 7f2aabb060d3ccd62b3490e575d2e9a3,
+    type: 3}
   onMissEvent:
     m_PersistentCalls:
       m_Calls: []
