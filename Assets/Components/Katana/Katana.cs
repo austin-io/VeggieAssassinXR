@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UltimateXR.Manipulation;
 
 public class Katana : MonoBehaviour {
     
@@ -8,7 +9,7 @@ public class Katana : MonoBehaviour {
     [SerializeField] GameObject swordModel;
     [SerializeField] CollisionSystem collisionSystem;
     [SerializeField] UltimateXR.Haptics.Helpers.UxrFixedHapticFeedback haptics;
-    [SerializeField] UltimateXR.Manipulation.UxrGrabManager grabManager;
+    //[SerializeField] UltimateXR.Manipulation.UxrGrabManager grabManager;
     [SerializeField] UltimateXR.Manipulation.UxrGrabber grabber;
 
     [HideInInspector] public TriangleShape mainTriangle, followTriangle;
@@ -24,8 +25,8 @@ public class Katana : MonoBehaviour {
         mainTriangle = gameObject.AddComponent<TriangleShape>();
         followTriangle = gameObject.AddComponent<TriangleShape>();
 
-        grabManager = FindObjectOfType<UltimateXR.Manipulation.UxrGrabManager>();
-        grabManager.GrabObject(grabber, GetComponent<UltimateXR.Manipulation.UxrGrabbableObject>(), 0, true);
+        //grabManager = FindObjectOfType<UltimateXR.Manipulation.UxrGrabManager>();
+        UxrGrabManager.Instance.GrabObject(grabber, GetComponent<UltimateXR.Manipulation.UxrGrabbableObject>(), 0, true);
 
         collisionSystem.katanas.Add(this);
 
